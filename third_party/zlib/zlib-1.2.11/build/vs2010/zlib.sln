@@ -1,0 +1,43 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "example", "example.vcxproj", "{A18DC986-5977-3557-BF4B-249045B75FB1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4AB3A003-505D-33CE-8A7F-E02D86AE6892} = {4AB3A003-505D-33CE-8A7F-E02D86AE6892}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "minigzip", "minigzip.vcxproj", "{6BF9ED3A-1181-314E-9F95-07DC8BB339C2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4AB3A003-505D-33CE-8A7F-E02D86AE6892} = {4AB3A003-505D-33CE-8A7F-E02D86AE6892}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "zlib.vcxproj", "{4AB3A003-505D-33CE-8A7F-E02D86AE6892}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlibstatic", "zlibstatic.vcxproj", "{0F15776C-BDEA-3400-BA5D-557AC3B03681}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A18DC986-5977-3557-BF4B-249045B75FB1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A18DC986-5977-3557-BF4B-249045B75FB1}.Debug|Win32.Build.0 = Debug|Win32
+		{A18DC986-5977-3557-BF4B-249045B75FB1}.Release|Win32.ActiveCfg = Release|Win32
+		{A18DC986-5977-3557-BF4B-249045B75FB1}.Release|Win32.Build.0 = Release|Win32
+		{6BF9ED3A-1181-314E-9F95-07DC8BB339C2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6BF9ED3A-1181-314E-9F95-07DC8BB339C2}.Debug|Win32.Build.0 = Debug|Win32
+		{6BF9ED3A-1181-314E-9F95-07DC8BB339C2}.Release|Win32.ActiveCfg = Release|Win32
+		{6BF9ED3A-1181-314E-9F95-07DC8BB339C2}.Release|Win32.Build.0 = Release|Win32
+		{4AB3A003-505D-33CE-8A7F-E02D86AE6892}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4AB3A003-505D-33CE-8A7F-E02D86AE6892}.Debug|Win32.Build.0 = Debug|Win32
+		{4AB3A003-505D-33CE-8A7F-E02D86AE6892}.Release|Win32.ActiveCfg = Release|Win32
+		{4AB3A003-505D-33CE-8A7F-E02D86AE6892}.Release|Win32.Build.0 = Release|Win32
+		{0F15776C-BDEA-3400-BA5D-557AC3B03681}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0F15776C-BDEA-3400-BA5D-557AC3B03681}.Debug|Win32.Build.0 = Debug|Win32
+		{0F15776C-BDEA-3400-BA5D-557AC3B03681}.Release|Win32.ActiveCfg = Release|Win32
+		{0F15776C-BDEA-3400-BA5D-557AC3B03681}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
