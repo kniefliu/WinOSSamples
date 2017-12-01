@@ -176,8 +176,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_CREATE:
 		{
+			//char * data = 0;
+			//readPng("pic2.png", s_bmp_width, s_bmp_height, &data);
 			char * data = 0;
-			readPng("pic2.png", s_bmp_width, s_bmp_height, &data);
+			s_bmp_height = 128;
+			s_bmp_width = 128;
+			long file_size = s_bmp_width * s_bmp_height * 4;
+			int block_size = 0;
+			block_size = 4 ;//: 3;
+			data = (char *)malloc(file_size);
+			for (int y = 0; y < s_bmp_height; y++)
+			{
+				for (int x = 0; x < s_bmp_width; x ++)
+				{
+					data[y * (s_bmp_width * block_size) + x * block_size + 0] = 0x00; // B
+					data[y * (s_bmp_width * block_size) + x * block_size + 1] = 0x00; // G
+					data[y * (s_bmp_width * block_size) + x * block_size + 2] = 0xFF; // R
+					data[y * (s_bmp_width * block_size) + x * block_size + 3] = 0xFF; // A
+				}
+			}
 
 			BITMAPINFOHEADER hdr = { 0 };
 			hdr.biSize = sizeof(BITMAPINFOHEADER);
