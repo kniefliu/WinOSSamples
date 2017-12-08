@@ -18,3 +18,4 @@ add_definitions(-D_MBCS)
 # add each CMake file
 add_subdirectory(UIlib)
 add_subdirectory(App)
+add_subdirectory(UIlibDemo)
