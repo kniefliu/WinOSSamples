@@ -12,7 +12,7 @@ add_executable(App WIN32 ${SRC_Root} ${SRC_Resource} ${SRC_Resource_res})
 target_link_libraries(App UIlib)
 
 if (MSVC)
-	set_target_properties(UIlib PROPERTIES COMPILE_FLAGS "/YuStdAfx.h")
+	set_target_properties(App PROPERTIES COMPILE_FLAGS "/YuStdAfx.h")
 	set_source_files_properties(StdAfx.cpp PROPERTIES COMPILE_FLAGS "/YcStdAfx.h")
 endif(MSVC)
 
