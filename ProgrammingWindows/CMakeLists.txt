@@ -17,3 +17,5 @@ add_definitions(-D_UNICODE -DUNICODE)
 
 # add each CMake file
 add_subdirectory(src/HelloWin)
+add_subdirectory(src/SystemMetrics/Lib)
+add_subdirectory(src/SystemMetrics/Num1)
