@@ -21,6 +21,7 @@ add_subdirectory(360SafeDemo)
 add_subdirectory(FlashDemo)
 add_subdirectory(GameDemo)
 add_subdirectory(ListDemo)
-# add_subdirectory(MenuDemo) the sources in this project has error
+add_subdirectory(MenuDemo)
 add_subdirectory(QQDemo)
 add_subdirectory(RichListDemo)
+add_subdirectory(TestApp1)
