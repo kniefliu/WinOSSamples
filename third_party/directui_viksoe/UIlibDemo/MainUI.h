@@ -16,7 +16,7 @@ public:
 
 	virtual void Notify(TNotifyUI& msg) override;
 
-	LPCTSTR GetDialogResource() const;
+	CStdString GetDialogResource() const;
 
 public:
 	CPaintManagerUI m_pm;

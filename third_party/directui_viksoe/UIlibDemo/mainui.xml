@@ -1,0 +1,14 @@
+<Dialog>
+	<HorizontalLayout>
+		<VerticalLayout width="150">
+			<NavigatorPanel>
+				<PaddingPanel height="18" />
+				<NavigatorButton name="page_start" text="<i 0> Start" selected="true" tooltip="Vis start siden" />
+				<NavigatorButton name="page_registers" text="<i 4> Registre" tooltip="Vis forskellige registre" />
+				<NavigatorButton name="page_systems" text="<i 4> Systemer" />
+				<NavigatorButton name="page_configure" text="<i 4> Options" />
+				<NavigatorButton name="page_reports" text="<i 4> Rapporter" />
+			</NavigatorPanel>
+		</VerticalLayout>
+	</HorizontalLayout>
+</Dialog>  
