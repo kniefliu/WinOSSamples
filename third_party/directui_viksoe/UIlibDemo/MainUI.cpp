@@ -1,6 +1,8 @@
 #include "StdAfx.h"
 #include "MainUI.h"
 
+#include "UICanvas.h"
+
 #include <fstream>
 
 CMainUI::CMainUI()
@@ -28,7 +30,7 @@ LRESULT CMainUI::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		m_pm.Init(m_hWnd);
 		CDialogBuilder builder;
-		CControlUI * pRoot = builder.Create(GetDialogResource());
+		CControlUI * pRoot = builder.Create(GetDialogResource(), this);
 		ASSERT(pRoot && "Failed to parse XML");
 		m_pm.AttachDialog(pRoot);
 		m_pm.AddNotifier(this);
@@ -54,6 +56,12 @@ void CMainUI::Notify(TNotifyUI& msg)
 {
 	if (msg.sType == _T("windowinit"))
 		OnPrepareAnimation();
+}
+
+CControlUI* CMainUI::CreateControl(LPCTSTR pstrClass)
+{
+	if (_tcscmp(pstrClass, _T("MyWhiteCanvasUI")) == 0) return new CMyWhiteCanvasUI();
+	return NULL;
 }
 
 CStdString CMainUI::GetDialogResource() const

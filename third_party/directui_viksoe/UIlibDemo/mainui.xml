@@ -10,5 +10,10 @@
 				<NavigatorButton name="page_reports" text="<i 4> Rapporter" />
 			</NavigatorPanel>
 		</VerticalLayout>
+		<VerticalLayout >
+			<MyWhiteCanvasUI>
+				<LabelPanel align="right" text="<f 6><c #fffe28>Start Side</c></f>" />
+			</MyWhiteCanvasUI>
+		</VerticalLayout>
 	</HorizontalLayout>
 </Dialog>  

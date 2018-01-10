@@ -1,7 +1,7 @@
 #ifndef __MAINUI_H__
 #define __MAINUI_H__
 
-class CMainUI : public CWindowWnd, public INotifyUI
+class CMainUI : public CWindowWnd, public INotifyUI, public IDialogBuilderCallback
 {
 public:
 	CMainUI();
@@ -15,6 +15,8 @@ public:
 	void OnPrepareAnimation();
 
 	virtual void Notify(TNotifyUI& msg) override;
+
+	virtual CControlUI* CreateControl(LPCTSTR pstrClass) override;
 
 	CStdString GetDialogResource() const;
 
