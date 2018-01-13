@@ -1,6 +1,10 @@
 #include "StdAfx.h"
 #include "MainUI.h"
 
+#include "UICanvas.h"
+
+#include <fstream>
+
 CMainUI::CMainUI()
 {
 }
@@ -26,7 +30,7 @@ LRESULT CMainUI::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		m_pm.Init(m_hWnd);
 		CDialogBuilder builder;
-		CControlUI * pRoot = builder.Create(GetDialogResource());
+		CControlUI * pRoot = builder.Create(GetDialogResource(), this);
 		ASSERT(pRoot && "Failed to parse XML");
 		m_pm.AttachDialog(pRoot);
 		m_pm.AddNotifier(this);
@@ -54,8 +58,15 @@ void CMainUI::Notify(TNotifyUI& msg)
 		OnPrepareAnimation();
 }
 
-LPCTSTR CMainUI::GetDialogResource() const
+CControlUI* CMainUI::CreateControl(LPCTSTR pstrClass)
 {
+	if (_tcscmp(pstrClass, _T("MyWhiteCanvasUI")) == 0) return new CMyWhiteCanvasUI();
+	return NULL;
+}
+
+CStdString CMainUI::GetDialogResource() const
+{
+#ifndef DUI_RES_PATH
 	return "<Dialog>"
       "<HorizontalLayout>"
         "<VerticalLayout width=\"150\" >"
@@ -70,4 +81,31 @@ LPCTSTR CMainUI::GetDialogResource() const
         "</VerticalLayout>"
       "</HorizontalLayout>"
       "</Dialog>";     
+#else
+	CStdString strXML;
+	std::string xmlFileName = DUI_RES_PATH;
+	xmlFileName.append("mainui.xml");
+	std::ifstream fin(xmlFileName, std::ifstream::binary);
+	if (fin)
+	{
+		fin.seekg(0, fin.end);
+		std::fstream::pos_type length = fin.tellg();
+		fin.seekg(0, fin.beg);
+
+		int len = (int)length;
+
+		char *buffer = new char[len+1];
+		memset(buffer, 0, len+1);
+		fin.read(buffer, len);
+
+		if (fin)
+		{
+			strXML.Assign(buffer, (int)len);
+		}
+
+		fin.close();
+		delete[] buffer;
+	}
+	return strXML;
+#endif
 }

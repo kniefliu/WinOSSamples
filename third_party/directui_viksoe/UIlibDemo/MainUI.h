@@ -1,7 +1,7 @@
 #ifndef __MAINUI_H__
 #define __MAINUI_H__
 
-class CMainUI : public CWindowWnd, public INotifyUI
+class CMainUI : public CWindowWnd, public INotifyUI, public IDialogBuilderCallback
 {
 public:
 	CMainUI();
@@ -16,7 +16,9 @@ public:
 
 	virtual void Notify(TNotifyUI& msg) override;
 
-	LPCTSTR GetDialogResource() const;
+	virtual CControlUI* CreateControl(LPCTSTR pstrClass) override;
+
+	CStdString GetDialogResource() const;
 
 public:
 	CPaintManagerUI m_pm;
