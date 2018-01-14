@@ -8,3 +8,5 @@
 
 #include "..\UIlib\UIlib.h"
 #pragma comment(lib, "UIlib.lib")
+
+#define lengthof(x) (sizeof(x)/sizeof(*x))

@@ -2,6 +2,8 @@
 #include "MainUI.h"
 
 #include "UICanvas.h"
+#include "UIMyLabel.h"
+#include "UIMyDlgBuilder.h"
 
 #include <fstream>
 
@@ -29,7 +31,7 @@ LRESULT CMainUI::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	if (uMsg == WM_CREATE)
 	{
 		m_pm.Init(m_hWnd);
-		CDialogBuilder builder;
+		CMyDialogBuilder builder;
 		CControlUI * pRoot = builder.Create(GetDialogResource(), this);
 		ASSERT(pRoot && "Failed to parse XML");
 		m_pm.AttachDialog(pRoot);
@@ -61,6 +63,7 @@ void CMainUI::Notify(TNotifyUI& msg)
 CControlUI* CMainUI::CreateControl(LPCTSTR pstrClass)
 {
 	if (_tcscmp(pstrClass, _T("MyWhiteCanvasUI")) == 0) return new CMyWhiteCanvasUI();
+	if (_tcscmp(pstrClass, _T("MyLabelPanelUI")) == 0) return new CMyLabelPanelUI();
 	return NULL;
 }
 
