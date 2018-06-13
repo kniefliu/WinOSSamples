@@ -105,15 +105,15 @@ SkImageGenerator* SkImageGeneratorWIC::NewFromEncodedWIC(SkData* data) {
         GUID_WICPixelFormat96bppRGBFixedPoint == format ||
         GUID_WICPixelFormat128bppRGBFloat == format ||
         GUID_WICPixelFormat128bppRGBFixedPoint == format ||
-        GUID_WICPixelFormat32bppRGB == format ||
-        GUID_WICPixelFormat64bppRGB == format ||
-        GUID_WICPixelFormat96bppRGBFloat == format ||
+        //GUID_WICPixelFormat32bppRGB == format ||
+        //GUID_WICPixelFormat64bppRGB == format ||
+        //GUID_WICPixelFormat96bppRGBFloat == format ||
         GUID_WICPixelFormat32bppCMYK == format ||
-        GUID_WICPixelFormat64bppCMYK == format ||
+        GUID_WICPixelFormat64bppCMYK == format/* ||
         GUID_WICPixelFormat8bppY == format ||
         GUID_WICPixelFormat8bppCb == format ||
         GUID_WICPixelFormat8bppCr == format ||
-        GUID_WICPixelFormat16bppCbCr == format)
+        GUID_WICPixelFormat16bppCbCr == format*/)
     {
         alphaType = kOpaque_SkAlphaType;
     }
