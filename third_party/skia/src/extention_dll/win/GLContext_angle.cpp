@@ -60,14 +60,14 @@ const GrGLInterface* CreateANGLEGLInterface() {
     if (nullptr == gLibs.fGLLib) {
         // We load the ANGLE library and never let it go
 #if defined _WIN32
-        gLibs.fGLLib = DynamicLoadLibrary("libGLESv2ForLyra.dll");
-        gLibs.fEGLLib = DynamicLoadLibrary("libEGLForLyra.dll");
+        gLibs.fGLLib = DynamicLoadLibrary("libGLESv2.dll");
+        gLibs.fEGLLib = DynamicLoadLibrary("libEGL.dll");
 #elif defined SK_BUILD_FOR_MAC
-        gLibs.fGLLib = DynamicLoadLibrary("libGLESv2ForLyra.dylib");
-        gLibs.fEGLLib = DynamicLoadLibrary("libEGLForLyra.dylib");
+        gLibs.fGLLib = DynamicLoadLibrary("libGLESv2.dylib");
+        gLibs.fEGLLib = DynamicLoadLibrary("libEGL.dylib");
 #else
-        gLibs.fGLLib = DynamicLoadLibrary("libGLESv2ForLyra.so");
-        gLibs.fEGLLib = DynamicLoadLibrary("libEGLForLyra.so");
+        gLibs.fGLLib = DynamicLoadLibrary("libGLESv2.so");
+        gLibs.fEGLLib = DynamicLoadLibrary("libEGL.so");
 #endif
     }
 

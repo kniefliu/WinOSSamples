@@ -28,6 +28,7 @@ std::unique_ptr<SkEncoder> SkPngEncoder::Make(SkWStream*, const SkPixmap&, const
 bool SkWebpEncoder::Encode(SkWStream*, const SkPixmap&, const Options&) { return false; }
 #endif
 
+#define SK_USE_WIC_ENCODER 1
 bool SkEncodeImage(SkWStream* dst, const SkPixmap& src,
                    SkEncodedImageFormat format, int quality) {
     #ifdef SK_USE_CG_ENCODER

@@ -34,6 +34,8 @@ void CFrameWindowWnd::OnFinalMessage(HWND /*hWnd*/)
 	delete this; 
 };
 
+#define ID_TIMER 100
+
 LRESULT CFrameWindowWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	if( uMsg == WM_CREATE ) {
@@ -50,9 +52,10 @@ LRESULT CFrameWindowWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		//m_pRightChild = new CRightChildWindowWnd();
 		//m_pRightChild->Create(m_hWnd, TEXT("rightchild"), UI_WNDSTYLE_CHILD | WS_BORDER, 0);
-
+		SetTimer(m_hWnd, ID_TIMER, 1000, NULL);
 	}
 	if( uMsg == WM_DESTROY ) {
+		::KillTimer(m_hWnd, ID_TIMER);
 		::PostQuitMessage(0L);
 	}
 	if (uMsg == WM_ERASEBKGND) {
@@ -98,6 +101,10 @@ LRESULT CFrameWindowWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		//MoveWindow(m_pLeftChild->GetHWND(), xLeftChild, yLeftChild, wChild, hChild, TRUE);
 		//MoveWindow(m_pRightChild->GetHWND(), xRightChild, yRightChild, wChild, hChild, TRUE);
 
+		return 0;
+	}
+	if (uMsg == WM_TIMER) {
+		::InvalidateRect(m_hWnd, NULL, TRUE);
 		return 0;
 	}
 	if (uMsg == WM_PAINT) {

@@ -31,6 +31,8 @@
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
 
+#include <sstream>
+
 #define GL_CALL(IFACE, X)                                 \
     SkASSERT(IFACE);                                      \
     do {                                                  \
@@ -105,6 +107,18 @@ void SkOSWindow::doPaint(void* ctx) {
     {
         HDC hdc = (HDC)ctx;
         const SkBitmap& bitmap = this->getBitmap();
+
+		{
+			static int count = 0;
+			std::stringstream ss;
+			ss << "screenshot_" << count << ".bmp";
+			count++;
+			SkFILEWStream file(ss.str().c_str());
+
+			if (!SkEncodeImage(&file, bitmap, SkEncodedImageFormat::kBMP, 100)) {
+				OutputDebugStringA("SkEncodeImage error\n");
+			}
+		}
 
         BITMAPINFO bmi;
         memset(&bmi, 0, sizeof(bmi));
@@ -251,8 +265,8 @@ static void* get_angle_egl_display(void* nativeDisplay) {
 
 struct ANGLEAssembleContext {
 	ANGLEAssembleContext() {
-		fEGL = GetModuleHandleA("libEGLForLyra.dll");
-		fGL = GetModuleHandleA("libGLESv2ForLyra.dll");
+		fEGL = GetModuleHandleA("libEGL.dll");
+		fGL = GetModuleHandleA("libGLESv2.dll");
 	}
 
 	bool isValid() const { return SkToBool(fEGL) && SkToBool(fGL); }
@@ -302,7 +316,7 @@ bool create_ANGLE(EGLNativeWindowType hWnd,
         EGL_NONE
     };
     static const EGLint surfaceAttribList[] = {
-		EGL_SURFACE_ORIENTATION_ANGLE, EGL_SURFACE_ORIENTATION_INVERT_Y_ANGLE,
+		EGL_NONE, EGL_NONE,
         EGL_NONE, EGL_NONE
     };
 

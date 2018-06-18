@@ -22,7 +22,7 @@ CLyraWindow::CLyraWindow(void* hwnd, DeviceManager* dev)
 	fDeviceType = kRaster_DeviceType;
 
 #if SK_ANGLE
-    fDeviceType = kANGLE_DeviceType;
+    //fDeviceType = kANGLE_DeviceType;
 #endif
 
 	fDevManager = dev;
