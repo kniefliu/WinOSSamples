@@ -238,20 +238,15 @@ egl::Error SurfaceD3D::swapRect(const gl::Context *context,
 
     if (width != 0 && height != 0)
     {
-		OutputDebugStringA("SwapChain will swapRect");
         EGLint status = mSwapChain->swapRect(context, x, y, width, height);
 
         if (status == EGL_CONTEXT_LOST)
         {
-			OutputDebugStringA("swapRect status EGL_CONTEXT_LOST");
             mRenderer->notifyDeviceLost();
             return egl::Error(status);
         }
         else if (status != EGL_SUCCESS)
         {
-			std::stringstream ss;
-			ss << "swapRect status EGL_CONTEXT_LOST" << status;
-			OutputDebugStringA(ss.str().c_str());
             return egl::Error(status);
         }
     }
