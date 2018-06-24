@@ -15,3 +15,4 @@ message(STATUS, "CMake project files for cplusplus")
 
 # add each CMake file
 add_subdirectory(src/HelloWorld)
+add_subdirectory(src/HelloConsole)
